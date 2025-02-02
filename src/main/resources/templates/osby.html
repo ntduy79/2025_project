@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nguyen Tan Duy | Portfolio</title>
+    <link href="/webjars/bootstrap/5.2.3/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css">
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <script src="/webjars/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-gs">
+<div th:replace="~{fragments/header::header}"></div>
+<div class="px-4 text-center">
+    <img src="../static/images/randomCatCute.png" width="15%" height="15%" th:src="@{images/randomCatCute.png}" alt="Logo">
+    <h1>💻 Welcome to my Portfolio 💻</h1>
+
+    <h2>Contact Information</h2>
+    <p><strong>Name:</strong> Duy Nguyen</p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tanduy79" target="_blank">Duy Nguyen</a></p>
+    <p><strong>Mobile:</strong> 070 588 4279</p>
+    <p><strong>Email:</strong> <a href="mailto:anhhungduy33@gmail.com">anhhungduy33@gmail.com</a></p>
+    <p><strong>Github:</strong> <a href="https://github.com/ntduy79" target="_blank">ntduy79 (Yilang Peng)</a></p>
+    <div class="divider"></div>
+
+    <div class="d-flex justify-content-center">
+        <div class="content-split">
+            <div class="calendar">Loading the data just for you.</div>
+        </div>
+        <div class="content-split col-lg-6 mx-auto">
+            <h2>Education</h2>
+            <div class="row">
+                <div class="col-md-4"><p><strong>Thu Duc City</strong></p></div>
+                <div class="col-md-4"><p><strong>University of Technology and Education</strong></p></div>
+                <div class="col-md-4"><p><strong>September 2019 – June 2024</strong></p></div>
+            </div>
+            <p><strong>Degree:</strong> Bachelor’s in Computer Engineering</p>
+            <p><strong>Coursework:</strong> Machine Learning, Data Structures and Algorithms, Python for Data Analysis, Internet of Things Foundations and Applications, Calculus for CE and Advanced Mathematics for Computer Engineering.</p>
+            <div class="divider"></div>
+
+            <h2>Technical Experience</h2>
+            <p><strong>Projects:</strong></p>
+            <p><strong>Human Activity Recognition (2022):</strong> Developed a machine learning model using Tensorflow, Keras, and Numpy.</p>
+            <p><strong>Applied Pandas for Data Preparation (2023):</strong> Conducted data cleaning, transformation, and analysis using Python and Pandas.</p>
+            <p><strong>Number Guessing Game (2024):</strong> Using Java to create a number-guessing game with features like multiple rounds, a timer, a hint system, and a high score tracker. A unit test suite ensures reliability and functionality.</p>
+            <p><strong>Dynamic Portfolio (2025):</strong> ádasd</p>
+            <div class="divider"></div>
+
+            <h2>Work Experience</h2>
+            <p><strong>Test Consultant, Netcompany (June 2024 – Present):</strong> Developed automation tools, created test scripts in Java, conducted manual testing, designed test plans, and developed detailed test cases.</p>
+            <p><strong>Internship QA, Nexon Korean/Nexon Networks Vina (Apr 2024 – June 2024):</strong> Identified and reported bugs, reviewed system specifications, collaborated on test plans, executed manual test cases, and conducted post-release testing.</p>
+            <p><strong>Project Mobile Dungeon and Fighter Tester (DNF):</strong> Performed manual and automation testing, created test documentation, established communication with managers and QA team, identified critical bugs, and documented quality issues.</p>
+            <p><strong>Cashier Customer Service, Domino’s Pizza (Feb 2021 - Jul 2021):</strong> Handled transactions, assisted customers, resolved complaints, and maintained store environment.</p>
+            <p><strong>R&D Machine Learning, Wisdom Robotics (Jun 2023 - Sep 2023):</strong> Conducted research on algorithms, worked with Lidar technology, and implemented advanced machine learning techniques.</p>
+            <div class="divider"></div>
+
+            <h2>Languages and Technologies</h2>
+            <p>Microsoft Visual Studio, IntelliJ IDEA</p>
+            <p>Basic C++, Python, HTML, CSS, JavaScript, Java</p>
+            <p>Experienced with Cucumber for Automation Testing</p>
+            <div class="divider"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    GitHubCalendar(".calendar", "ntduy79", {
+        responsive: true,
+        tooltips: true,
+        global_stats: true
+    });
+</script>
+</body>
+</html>
