@@ -11,18 +11,15 @@
 <body class="bg">
 <div th:replace="~{fragments/header::header}"></div>
 <div class="px-4 py-5 text-center">
-    <h1 class="display-5 fw-bold">Oops... ⚒ (⊙_◎) </h1>
+    <h1 class="display-5 fw-bold" style="color: black;">Oops... ⚒ (⊙_◎) </h1>
     <div class="col-lg-6 mx-auto">
-
-        <h3 th:if="${#strings.isEmpty(errorCode)}" class="display-5 text-center">404</h3>
-        <h3 th:unless="${#strings.isEmpty(errorCode)}" class="display-5 text-center" th:text="${errorCode}"/>
-
-        <p th:if="${#strings.isEmpty(errorText)}" class="display-5 text-center">
+        <h3 th:if="${#strings.isEmpty(errorCode)}" class="display-5 text-center" style="color: black;">404</h3>
+        <h3 th:unless="${#strings.isEmpty(errorCode)}" class="display-5 text-center" th:text="${errorCode}" style="color: black;"/>
+        <p th:if="${#strings.isEmpty(errorText)}" class="display-5 text-center" style="color: black;">
             It seems like the page you're looking for either went for a wonder...<br>
             or never really existed to begin with.
         </p>
-        <h3 th:unless="${#strings.isEmpty(errorText)}" class="display-5 text-center" th:text="${errorText}"/>
-
+        <h3 th:unless="${#strings.isEmpty(errorText)}" class="display-5 text-center" th:text="${errorText}" style="color: black;"/>
     </div>
     <div class="px-4 py-3 text-center">
         <h1 style="color:#02999f">🧙‍<br>The little Snippet who tried</h1>
