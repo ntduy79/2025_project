@@ -51,6 +51,39 @@ code, pre {
     font-family: 'Inter', sans-serif;
 }
 
+.slider-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            cursor: grab;
+            margin: 20px 0;
+        }
+
+.slider {
+display: flex;
+transition: transform 0.3s ease;
+ will-change: transform; /* Optimize for animations */
+        }
+
+        .slider img {
+            width: var(--image-width);
+            height: auto;
+            margin-right: var(--image-spacing);
+            border-radius: 10px;
+            object-fit: cover;
+            user-select: none; /* Prevent image selection while dragging */
+        }
+
+        .slider img:last-child {
+            margin-right: 0;
+        }
+
+/* style.css */
+.logo-image {
+    width: 30%; /* Adjust as needed */
+     /* height: 200%; Maintain aspect ratio */
+}
+
 .navbar-text {
     color: var(--bs-navbar-color);
 }
