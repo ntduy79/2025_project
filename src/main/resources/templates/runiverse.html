@@ -18,62 +18,14 @@
 <!-- Draggable Image Slider -->
 <div class="slider-container">
     <div class="slider">
-        <!-- Use Thymeleaf iteration for dynamic images -->
-        <img th:each="i : ${#numbers.sequence(1, 6)}"
-             src="../static/images/randomCatCute.png"
-             th:src="@{/images/randomCatCute.png}"
-             th:alt="'Cute Cat Logo ' + ${i}">
+        <span style="--i:1;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
+        <span style="--i:2;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
+        <span style="--i:3;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
+        <span style="--i:4;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
+        <span style="--i:5;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
+        <span style="--i:6;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
     </div>
 </div>
 
-<!-- Optimized Slider Script -->
-<script>
-    (function() {
-        'use strict';
-
-        const slider = document.querySelector('.slider');
-        let isDragging = false,
-            startPos = 0,
-            currentTranslate = 0,
-            prevTranslate = 0,
-            animationID = 0;
-
-        // Touch event handlers
-        const handleDragStart = (clientX) => {
-            isDragging = true;
-            startPos = clientX;
-            animationID = requestAnimationFrame(animate);
-            slider.style.cursor = 'grabbing';
-        };
-
-        const handleDragMove = (clientX) => {
-            if (!isDragging) return;
-            currentTranslate = prevTranslate + clientX - startPos;
-        };
-
-        const handleDragEnd = () => {
-            isDragging = false;
-            cancelAnimationFrame(animationID);
-            prevTranslate = currentTranslate;
-            slider.style.cursor = 'grab';
-        };
-
-        // Mouse events
-        slider.addEventListener('mousedown', (e) => handleDragStart(e.clientX));
-        slider.addEventListener('mousemove', (e) => handleDragMove(e.clientX));
-        slider.addEventListener('mouseup', handleDragEnd);
-        slider.addEventListener('mouseleave', handleDragEnd);
-
-        // Touch events
-        slider.addEventListener('touchstart', (e) => handleDragStart(e.touches[0].clientX));
-        slider.addEventListener('touchmove', (e) => handleDragMove(e.touches[0].clientX));
-        slider.addEventListener('touchend', handleDragEnd);
-
-        function animate() {
-            slider.style.transform = `translateX(${currentTranslate}px)`;
-            if (isDragging) requestAnimationFrame(animate);
-        }
-    })();
-</script>
 </body>
 </html>
