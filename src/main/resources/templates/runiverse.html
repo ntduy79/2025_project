@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Draggable Image Slider</title>
+    <title>Every images tell a story.</title>
 
     <!-- Consolidated resource loading -->
     <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" rel="stylesheet">
@@ -18,14 +18,73 @@
 <!-- Draggable Image Slider -->
 <div class="slider-container">
     <div class="slider">
-        <span style="--i:1;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
-        <span style="--i:2;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
-        <span style="--i:3;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
-        <span style="--i:4;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
-        <span style="--i:5;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
-        <span style="--i:6;"><img src="../static/images/firstTattoo.jpg"  th:src="@{images/firstTattoo.jpg}" alt=""></span>
+        <span style="--i:1;"><img src="../static/images/firstTattoo.jpg" th:src="@{images/firstTattoo.jpg}" alt=""></span>
+        <span style="--i:2;"><img src="../static/images/UTE.jpg" th:src="@{images/UTE.jpg}" alt=""></span>
+        <span style="--i:3;"><img src="../static/images/leaugeOfLegend.jpg" th:src="@{images/leaugeOfLegend.jpg}" alt=""></span>
+        <span style="--i:4;"><img src="../static/images/Faker.jpg" th:src="@{images/Faker.jpg}" alt=""></span>
+        <span style="--i:5;"><img src="../static/images/chess.jpg" th:src="@{images/chess.jpg}" alt=""></span>
+        <span style="--i:6;"><img src="../static/images/Basketball.jpg" th:src="@{images/Basketball.jpg}" alt=""></span>
     </div>
 </div>
 
+<!-- JavaScript for Draggable Slider -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sliderContainer = document.querySelector('.slider-container');
+        const slider = document.querySelector('.slider');
+
+        let currentAngle = 0;
+        let isDragging = false;
+        let prevX = 0;
+        let autoRotate = true;
+        let animationId;
+
+        function animate() {
+            if (!isDragging && autoRotate) {
+                currentAngle += 0.2; // Matches original 30s rotation speed
+                updateSliderRotation();
+            }
+            animationId = requestAnimationFrame(animate);
+        }
+
+        function updateSliderRotation() {
+            slider.style.transform = `rotateY(${currentAngle}deg)`;
+        }
+
+        animate();
+
+        // Mouse events
+        sliderContainer.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', endDrag);
+
+        // Touch events
+        sliderContainer.addEventListener('touchstart', startDrag);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('touchend', endDrag);
+
+        function startDrag(e) {
+            isDragging = true;
+            autoRotate = false;
+            prevX = e.clientX || e.touches[0].clientX;
+            e.preventDefault();
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            const currentX = e.clientX || e.touches[0].clientX;
+            const deltaX = currentX - prevX;
+            currentAngle += deltaX * 0.1; // Adjust sensitivity here
+            updateSliderRotation();
+            prevX = currentX;
+            e.preventDefault();
+        }
+
+        function endDrag() {
+            isDragging = false;
+            autoRotate = true;
+        }
+    });
+</script>
 </body>
 </html>
