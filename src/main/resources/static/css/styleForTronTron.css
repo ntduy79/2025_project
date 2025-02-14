@@ -14,3 +14,25 @@ body {
     display: block; /* Remove extra space below the image */
     margin: 0 auto; /* Center the image horizontally */
 }
+
+/* Container for image and text */
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Centered text */
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    white-space: nowrap;
+}
