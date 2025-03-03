@@ -3,21 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tròn tròn coffee.</title>
+    <title>Tròn Tròn Coffee</title>
 
+    <!-- Bootstrap CSS -->
     <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom CSS -->
     <link th:href="@{/css/styleForTronTron.css}" rel="stylesheet">
+    <!-- jQuery and Bootstrap JS -->
     <script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}" defer></script>
     <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}" defer></script>
 </head>
 <body class="bg-gs">
+<!-- Floating Action Buttons Container -->
+<div class="floating-btns">
+    <a href="#menu" class="floating-btn shadow-sm rounded-pill">
+        <span class="d-none d-md-inline">Explore Menu</span>
+        ☕
+    </a>
+    <a href="#contact" class="floating-btn shadow-sm rounded-pill">
+        <span class="d-none d-md-inline">Contact Us</span>
+        📞
+    </a>
+</div>
+
 <!-- Header Fragment -->
 <div th:replace="~{fragments/header::header}"></div>
 
-<!-- Image with Centered Text -->
-<div class="image-container">
-    <img src="../static/images/tron1.jpg" th:src="@{images/tron1.jpg}" alt="Logo" class="responsive-image">
-    <div class="centered-text">Welcome to Tròn Tròn Coffee</div>
-</div>
+<!-- Hero Section -->
+<section class="hero position-relative overflow-hidden">
+    <img src="../static/images/tron1.jpg" th:src="@{images/tron1.jpg}"
+         alt="Tròn Tròn Coffee Shop interior"
+         class="responsive-image w-100 object-fit-cover"
+         style="min-height: 60vh;">
+</section>
 </body>
 </html>
