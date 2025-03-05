@@ -2,9 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Tròn tròn coffee.</title>
-
     <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{/css/styleForTronTron.css}" rel="stylesheet">
     <script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}" defer></script>
@@ -14,10 +13,19 @@
 <!-- Header Fragment -->
 <div th:replace="~{fragments/header::header}"></div>
 
-<!-- Image with Centered Text -->
+<!-- Full-screen Image -->
 <div class="image-container">
-    <img src="../static/images/tron1.jpg" th:src="@{images/tron1.jpg}" alt="Logo" class="responsive-image">
-    <div class="centered-text">Welcome to Tròn Tròn Coffee</div>
+    <img src="../static/images/tron1.jpg" th:src="@{images/tron1.jpg}" alt="A cozy coffee shop with warm lighting and wooden furniture" class="responsive-image" loading="lazy">
+</div>
+
+<!-- Bottom Fixed Buttons -->
+<div class="button-container">
+    <a href="https://www.facebook.com/photo.php?fbid=971943984950601&set=pb.100064050243254.-2207520000&type=3" class="action-btn contact-btn" aria-label="Contact Me" target="_blank">
+        📧 Contact Me
+    </a>
+    <a href="#more" class="action-btn more-btn" aria-label="Show More">
+        ☕ Show More
+    </a>
 </div>
 </body>
 </html>
