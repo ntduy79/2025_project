@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Every images tell a story.</title>
+    <title>Every image tells a story.</title>
 
     <!-- Consolidated resource loading -->
     <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/styleForRuniverse.css}" rel="stylesheet">
     <script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}" defer></script>
     <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}" defer></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body class="bg-gs">
 <!-- Header Fragment -->
@@ -27,21 +29,39 @@
     </div>
 </div>
 
-<!-- JavaScript for Draggable Slider -->
+<!-- Music Player -->
+<div class="music-player">
+    <audio id="main-audio">
+        <source th:src="@{/images/muzic.mp3}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="player-controls">
+        <button class="btn-player" id="play-pause">
+            <i class="bi bi-play-fill"></i>
+        </button>
+        <span class="time-display current-time">0:00</span>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <span class="time-display duration">0:00</span>
+    </div>
+    <div class="volume-container">
+        <i class="bi bi-volume-up"></i>
+        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
+    </div>
+</div>
+
+<!-- JavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Slider Logic
         const sliderContainer = document.querySelector('.slider-container');
         const slider = document.querySelector('.slider');
-
-        let currentAngle = 0;
-        let isDragging = false;
-        let prevX = 0;
-        let autoRotate = true;
-        let animationId;
+        let currentAngle = 0, isDragging = false, prevX = 0, autoRotate = true, animationId;
 
         function animate() {
             if (!isDragging && autoRotate) {
-                currentAngle += 0.2; // Matches original 30s rotation speed
+                currentAngle += 0.2;
                 updateSliderRotation();
             }
             animationId = requestAnimationFrame(animate);
@@ -53,12 +73,10 @@
 
         animate();
 
-        // Mouse events
+        // Event Handlers
         sliderContainer.addEventListener('mousedown', startDrag);
         document.addEventListener('mousemove', drag);
         document.addEventListener('mouseup', endDrag);
-
-        // Touch events
         sliderContainer.addEventListener('touchstart', startDrag);
         document.addEventListener('touchmove', drag);
         document.addEventListener('touchend', endDrag);
@@ -73,16 +91,45 @@
         function drag(e) {
             if (!isDragging) return;
             const currentX = e.clientX || e.touches[0].clientX;
-            const deltaX = currentX - prevX;
-            currentAngle += deltaX * 0.1; // Adjust sensitivity here
-            updateSliderRotation();
+            currentAngle += (currentX - prevX) * 0.1;
             prevX = currentX;
+            updateSliderRotation();
             e.preventDefault();
         }
 
         function endDrag() {
             isDragging = false;
             autoRotate = true;
+        }
+
+        // Music Player Logic
+        const audio = document.getElementById('main-audio');
+        const playPauseBtn = document.getElementById('play-pause');
+        const progressBar = document.querySelector('.progress-bar');
+        const volumeSlider = document.querySelector('.volume-slider');
+        const [currentTimeEl, durationEl] = document.querySelectorAll('.time-display');
+        const progressContainer = document.querySelector('.progress-container');
+
+        playPauseBtn.addEventListener('click', () => {
+            audio.paused ? (audio.play(), playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>')
+                        : (audio.pause(), playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>');
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            progressBar.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        progressContainer.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+        });
+
+        volumeSlider.addEventListener('input', (e) => audio.volume = e.target.value);
+
+        function formatTime(seconds) {
+            return `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
         }
     });
 </script>
