@@ -12,6 +12,12 @@
     <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}" defer></script>
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Preload burn effect assets -->
+    <link rel="preload" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnStrip.jpg" as="image">
+    <link rel="preload" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnlineStrip.jpg" as="image">
+    <link rel="preload" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ashInnerStrip.jpg" as="image">
+    <link rel="preload" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ashOuterStrip.jpg" as="image">
 </head>
 <body class="bg-gs">
 <!-- Header Fragment -->
@@ -20,12 +26,71 @@
 <!-- Draggable Image Slider -->
 <div class="slider-container">
     <div class="slider">
-        <span style="--i:1;"><img src="../static/images/firstTattoo.jpg" th:src="@{images/firstTattoo.jpg}" alt=""></span>
-        <span style="--i:2;"><img src="../static/images/UTE.jpg" th:src="@{images/UTE.jpg}" alt=""></span>
-        <span style="--i:3;"><img src="../static/images/leaugeOfLegend.jpg" th:src="@{images/leaugeOfLegend.jpg}" alt=""></span>
-        <span style="--i:4;"><img src="../static/images/Faker.jpg" th:src="@{images/Faker.jpg}" alt=""></span>
-        <span style="--i:5;"><img src="../static/images/chess.jpg" th:src="@{images/chess.jpg}" alt=""></span>
-        <span style="--i:6;"><img src="../static/images/Basketball.jpg" th:src="@{images/Basketball.jpg}" alt=""></span>
+        <!-- Image 1 -->
+        <span style="--i:1;">
+            <div class="image-burn-container">
+                <img src="../static/images/firstTattoo.jpg" th:src="@{images/firstTattoo.jpg}" alt="" class="main-image">
+                <div class="image-burn"></div>
+                <div class="image-burnline"></div>
+                <div class="image-ash"></div>
+                <div class="image-ash-outer"></div>
+            </div>
+        </span>
+
+        <!-- Image 2 -->
+        <span style="--i:2;">
+            <div class="image-burn-container">
+                <img src="../static/images/UTE.jpg" th:src="@{images/UTE.jpg}" alt="" class="main-image">
+                <div class="image-burn"></div>
+                <div class="image-burnline"></div>
+                <div class="image-ash"></div>
+                <div class="image-ash-outer"></div>
+            </div>
+        </span>
+
+        <!-- Image 3 -->
+        <span style="--i:3;">
+            <div class="image-burn-container">
+                <img src="../static/images/leaugeOfLegend.jpg" th:src="@{images/leaugeOfLegend.jpg}" alt="" class="main-image">
+                <div class="image-burn"></div>
+                <div class="image-burnline"></div>
+                <div class="image-ash"></div>
+                <div class="image-ash-outer"></div>
+            </div>
+        </span>
+
+        <!-- Image 4 -->
+        <span style="--i:4;">
+            <div class="image-burn-container">
+                <img src="../static/images/Faker.jpg" th:src="@{images/Faker.jpg}" alt="" class="main-image">
+                <div class="image-burn"></div>
+                <div class="image-burnline"></div>
+                <div class="image-ash"></div>
+                <div class="image-ash-outer"></div>
+            </div>
+        </span>
+
+        <!-- Image 5 -->
+        <span style="--i:5;">
+            <div class="image-burn-container">
+                <img src="../static/images/chess.jpg" th:src="@{images/chess.jpg}" alt="" class="main-image">
+                <div class="image-burn"></div>
+                <div class="image-burnline"></div>
+                <div class="image-ash"></div>
+                <div class="image-ash-outer"></div>
+            </div>
+        </span>
+
+        <!-- Image 6 -->
+        <span style="--i:6;">
+            <div class="image-burn-container">
+                <img src="../static/images/Basketball.jpg" th:src="@{images/Basketball.jpg}" alt="" class="main-image">
+                <div class="image-burn"></div>
+                <div class="image-burnline"></div>
+                <div class="image-ash"></div>
+                <div class="image-ash-outer"></div>
+            </div>
+        </span>
     </div>
 </div>
 
@@ -54,6 +119,18 @@
 <!-- JavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Burn Effect Logic
+        document.querySelectorAll('.image-burn-container').forEach(container => {
+            container.addEventListener('click', function() {
+                this.classList.add('burning');
+
+                // Reset animation after completion
+                setTimeout(() => {
+                    this.classList.remove('burning');
+                }, 1300);
+            });
+        });
+
         // Slider Logic
         const sliderContainer = document.querySelector('.slider-container');
         const slider = document.querySelector('.slider');

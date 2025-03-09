@@ -102,28 +102,6 @@ body {
     perspective: 1000px; /* Added perspective */
 }
 
-/* Avatar Container */
-.avatar-container {
-    width: 168px; /* Fixed size for Facebook-like avatar */
-    height: 168px; /* Fixed size for Facebook-like avatar */
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
-    border: 4px solid #fff; /* White border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Avatar Image */
-.avatar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .slider {
     position: relative;
     width: 210px;
@@ -140,6 +118,7 @@ body {
     transform-origin: center;
     transform-style: preserve-3d;
     transform: rotateY(calc(var(--i) * 45deg)) translateZ(380px);
+    z-index: 0; /* Reset stacking context */
 }
 
 .slider span img {
@@ -223,3 +202,87 @@ code, pre {
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
+/* Burn animation styles */
+.image-burn-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    isolation: isolate; /* Create new stacking context */
+}
+
+.image-burn-container > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: inherit;
+}
+
+.main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    /* mix-blend-mode: multiply; */ /* Disable temporarily for testing */
+}
+
+.image-burn {
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnStrip.jpg');
+    background-size: 38145px 100%; /* Total width of burnStrip.jpg */
+    mix-blend-mode: lighten;
+}
+
+.image-burnline {
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnlineStrip.jpg');
+    background-size: 38145px 100%; /* Adjust if different */
+    mix-blend-mode: lighten;
+}
+
+.image-ash {
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ashInnerStrip.jpg');
+    background-size: 50190px 100%; /* Total width of ashInnerStrip.jpg */
+    mix-blend-mode: screen;
+}
+
+.image-ash-outer {
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ashOuterStrip.jpg');
+    background-size: 50190px 100%; /* Adjust if different */
+    mix-blend-mode: difference;
+}
+
+/* Animation keyframes */
+@keyframes burn {
+    0% { background-position: 0 0; }
+    100% { background-position: -38145px 0; }
+}
+
+@keyframes ash {
+    0% { background-position: 0 0; }
+    100% { background-position: -50190px 0; }
+}
+
+/* Add this class via JavaScript to trigger animation */
+.burning {
+    animation: burn 1.3s forwards steps(50, end);
+    will-change: transform, background-position; /* Optimize animation */
+}
+
+.burning .image-ash,
+.burning .image-ash-outer {
+    animation: ash 2s infinite steps(66, end);
+}
+
+.burning img {
+    pointer-events: none;
+    transform: none !important; /* Disable hover scaling during burn */
+}
