@@ -238,8 +238,9 @@ code, pre {
 
 .image-burn {
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnStrip.jpg');
-    background-size: 38145px 100%; /* Total width of burnStrip.jpg */
-    mix-blend-mode: lighten;
+    background-size: 38145px 100%;
+    /* mix-blend-mode: lighten; */ /* Remove or change this line */
+    mix-blend-mode: multiply; /* Example alternative */
 }
 
 .image-burnline {
