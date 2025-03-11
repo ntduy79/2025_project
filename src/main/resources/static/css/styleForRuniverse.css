@@ -3,127 +3,126 @@
 
 /* Global Styles */
 body {
-    font-family: 'Inter', sans-serif;
-    color: #E5E5E5;
-    background-color: #0d0d0d;
+  font-family: 'Inter', sans-serif;
+  color: #E5E5E5;
+  background-color: #0d0d0d;
 }
 
 /* Music Player Styles */
 .music-player {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 320px;
-    background: rgba(33, 33, 33, 0.95);
-    backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 18px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(229, 229, 229, 0.1);
-    z-index: 1000;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 320px;
+  background: rgba(33, 33, 33, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(229, 229, 229, 0.1);
+  z-index: 1000;
 }
 
 .player-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
 }
 
 .progress-container {
-    flex-grow: 1;
-    height: 3px;
-    background: rgba(229, 229, 229, 0.2);
-    border-radius: 2px;
-    cursor: pointer;
+  flex-grow: 1;
+  height: 3px;
+  background: rgba(229, 229, 229, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 .progress-bar {
-    height: 100%;
-    background: #E5E5E5;
-    border-radius: 2px;
-    transition: width 0.1s linear;
+  height: 100%;
+  background: #E5E5E5;
+  border-radius: 2px;
+  transition: width 0.1s linear;
 }
 
 .volume-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .volume-slider {
-    width: 100px;
-    height: 4px;
-    background: rgba(229, 229, 229, 0.2);
-    -webkit-appearance: none;
-    border-radius: 2px;
+  width: 100px;
+  height: 4px;
+  background: rgba(229, 229, 229, 0.2);
+  -webkit-appearance: none;
+  border-radius: 2px;
 }
 
 .volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
-    background: #E5E5E5;
-    border-radius: 50%;
-    cursor: pointer;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #E5E5E5;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .btn-player {
-    background: rgba(229, 229, 229, 0.1);
-    border: none;
-    color: #E5E5E5;
-    padding: 10px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: rgba(229, 229, 229, 0.1);
+  border: none;
+  color: #E5E5E5;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-player:hover {
-    background: rgba(229, 229, 229, 0.2);
+  background: rgba(229, 229, 229, 0.2);
 }
 
 .time-display {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    min-width: 40px;
-    text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  min-width: 40px;
+  text-align: center;
 }
 
 /* 3D Image Slider */
 .slider-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    perspective: 1800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  perspective: 1800px;
 }
 
 .slider {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    transform-style: preserve-3d;
+  position: relative;
+  width: 300px;      /* Reduced slider size */
+  height: 300px;     /* Reduced slider size */
+  transform-style: preserve-3d;
 }
 
 .slider span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-origin: center;
-    transform-style: preserve-3d;
-    transform: rotateY(calc(var(--i) * 45deg)) translateZ(550px);
-    z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px); /* Adjusted translateZ */
+  z-index: 0;
 }
 
-/* Image Container */
 .image-burn-container {
-    position: relative;
+     position: relative;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -143,71 +142,69 @@ body {
 }
 
 .slider span img:hover {
-    transform: translateY(-10px) scale(1.15);
-    z-index: 3;
+  transform: translateY(-10px) scale(1.15);
+  z-index: 3;
 }
 
 /* Burn Effects */
 .image-burn-container > div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 2;
-    border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
 }
 
 .image-burn {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnStrip.jpg');
-    mix-blend-mode: multiply;
-    opacity: 0.9;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnStrip.jpg');
+  mix-blend-mode: multiply;
+  opacity: 0.9;
 }
 
 .image-burnline {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnlineStrip.jpg');
-    mix-blend-mode: color-dodge;
-    opacity: 0.8;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/burnlineStrip.jpg');
+  mix-blend-mode: color-dodge;
+  opacity: 0.8;
 }
 
 .image-ash {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ashInnerStrip.jpg');
-    mix-blend-mode: screen;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ashInnerStrip.jpg');
+  mix-blend-mode: screen;
 }
 
 .image-ash-outer {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ashOuterStrip.jpg');
-    mix-blend-mode: difference;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ashOuterStrip.jpg');
+  mix-blend-mode: difference;
 }
 
 /* Animations */
 @keyframes burn {
-    0% { background-position: 0 0; }
-    100% { background-position: -38145px 0; }
+  0% { background-position: 0 0; }
+  100% { background-position: -38145px 0; }
 }
 
 @keyframes ash {
-    0% { background-position: 0 0; }
-    100% { background-position: -50190px 0; }
+  0% { background-position: 0 0; }
+  100% { background-position: -50190px 0; }
 }
 
 .burning {
-    animation: burn 1.3s forwards steps(50, end);
-    will-change: background-position;
+  animation: burn 1.3s forwards steps(50, end);
+  will-change: background-position;
 }
 
 .burning .image-ash,
 .burning .image-ash-outer {
-    animation: ash 2s infinite steps(66, end);
+  animation: ash 2s infinite steps(66, end);
 }
 
 .burning img {
-    pointer-events: none;
-    transform: none !important;
-    transition: none !important;
+  pointer-events: none;
+  transform: none !important;
+  transition: none !important;
 }
-
-/* Navbar Styles (Keep your existing navbar styles here) */
