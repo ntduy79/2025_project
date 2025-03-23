@@ -83,4 +83,23 @@
         flex-direction: column;
         gap: 0.5rem;
     }
+
+.new-container {
+    text-align: center;
+    padding: 40px;
+    background-color: #f4e1d2;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.new-container h2 {
+    color: #8b4513;
+    font-size: 24px;
+}
+
+.new-container p {
+    color: #5a3e2b;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
 }
