@@ -120,7 +120,7 @@
   flex-grow: 1;
   height: 2px;
   background-color: currentColor;
-  opacity: 0.65;
+  opacity: 0.5;
   margin-left: 10px;
   align-self: flex-end; /* Ensures line stays at the bottom */
 }
