@@ -44,100 +44,22 @@
                 <div class="line"></div>
             </div>
             <p>A rich and creamy blend of espresso and steamed milk.</p>
-            <ul>
-                <li><p><strong>Ingredients:</strong> Matcha</p></li>
-            </ul>
-            <ul>
-                <li><p><strong>Garnish:</strong> Cookies</p></li>
-            </ul>
+            <p><strong>Ingredients:</strong> Matcha</p>
+            <p class="garnish-text"><strong>Garnish:</strong> Cookies</p>
+
+            <div class="custom-flex">
+                <span>Item 1</span> <!-- Stays in the left column -->
+            </div>
         </div>
-        <!-- Right Column: Price & Drink Image -->
+
+        <!-- Right Column: Drink Image & Item 2 -->
         <div class="image-price">
             <div class="drink-image">
                 <img src="images/matchaLatte.jpeg" alt="Cappuccino" id="drink-img" loading="lazy">
             </div>
-            <div class="price">
-                <p>$4.99</p>
-            </div>
+            <span class="item-right">Item 2</span> <!-- Move Item 2 here -->
         </div>
-
-        <!-- Left Column: Drink Details -->
-        <div class="details">
-            <div class="h3withLine">
-                <h3>Placeholder</h3>
-                <div class="line"></div>
-            </div>
-            <p>A rich and creamy blend of espresso and steamed milk.</p>
-            <ul>
-                <li><p><strong>Ingredients:</strong> Matcha</p></li>
-            </ul>
-            <ul>
-                <li><p><strong>Garnish:</strong> Cookies</p></li>
-            </ul>
-        </div>
-        <!-- Right Column: Price & Drink Image -->
-        <div class="image-price">
-            <div class="drink-image">
-                <img src="images/matchaLatte.jpeg" alt="Cappuccino" id="drink-img" loading="lazy">
-            </div>
-            <div class="price">
-                <p>$4.99</p>
-            </div>
-        </div>
-
     </article>
-
-    <article class="info">
-        <!-- Left Column: Drink Details -->
-        <div class="details">
-            <div class="h3withLine">
-                <h3>Classic Cappuccino</h3>
-                <div class="line"></div>
-            </div>
-            <p>A rich and creamy blend of espresso and steamed milk.</p>
-            <ul>
-                <li><p><strong>Ingredients:</strong> Matcha</p></li>
-            </ul>
-            <ul>
-                <li><p><strong>Garnish:</strong> Cookies</p></li>
-            </ul>
-        </div>
-        <!-- Right Column: Price & Drink Image -->
-        <div class="image-price">
-            <div class="drink-image">
-                <img src="images/matchaLatte.jpeg" alt="Cappuccino" id="drink-img" loading="lazy">
-            </div>
-            <div class="price">
-                <p>$4.99</p>
-            </div>
-        </div>
-
-        <!-- Left Column: Drink Details -->
-        <div class="details">
-            <div class="h3withLine">
-                <h3>Placeholder</h3>
-                <div class="line"></div>
-            </div>
-            <p>A rich and creamy blend of espresso and steamed milk.</p>
-            <ul>
-                <li><p><strong>Ingredients:</strong> Matcha</p></li>
-            </ul>
-            <ul>
-                <li><p><strong>Garnish:</strong> Cookies</p></li>
-            </ul>
-        </div>
-        <!-- Right Column: Price & Drink Image -->
-        <div class="image-price">
-            <div class="drink-image">
-                <img src="images/matchaLatte.jpeg" alt="Cappuccino" id="drink-img" loading="lazy">
-            </div>
-            <div class="price">
-                <p>$4.99</p>
-            </div>
-        </div>
-
-    </article>
-
 </section>
 
 <!-- Modal for Enlarged Image -->
@@ -146,42 +68,5 @@
     <img class="modal-content" id="fullImage" alt="Enlarged drink image">
 </div>
 
-<!-- Inline JavaScript for Modal Interaction -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var modal = document.getElementById("imageModal");
-      var img = document.getElementById("drink-img");
-      var modalImg = document.getElementById("fullImage");
-      var closeBtn = document.querySelector(".modal .close");
-
-      // Open modal and prevent body scroll
-      img.addEventListener("click", function () {
-        modalImg.src = this.src;
-        modal.classList.add("show");
-        document.body.classList.add("modal-open");
-      });
-
-      // Close modal and restore body scroll
-      function closeModal() {
-        modal.classList.remove("show");
-        document.body.classList.remove("modal-open");
-      }
-
-      closeBtn.addEventListener("click", closeModal);
-
-      modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-          closeModal();
-        }
-      });
-
-      // Close modal with Esc key
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && modal.classList.contains("show")) {
-          closeModal();
-        }
-      });
-    });
-</script>
 </body>
 </html>
