@@ -35,9 +35,7 @@
 <section class="new-container">
     <h2>Welcome to Tròn Tròn Coffee</h2>
     <p>✨We're brewing up something special. Stay tuned! 📍 Bay Area, CA #trontroncafe ins: @trontroncafe</p>
-
     <article class="info">
-        <!-- Left Column: Drink Details -->
         <div class="details">
             <div class="h3withLine">
                 <h3>Classic Cappuccino</h3>
@@ -46,27 +44,29 @@
             <p>A rich and creamy blend of espresso and steamed milk.</p>
             <p><strong>Ingredients:</strong> Matcha</p>
             <p class="garnish-text"><strong>Garnish:</strong> Cookies</p>
-
-            <div class="custom-flex">
-                <span>Item 1</span> <!-- Stays in the left column -->
-            </div>
         </div>
-
-        <!-- Right Column: Drink Image & Item 2 -->
         <div class="image-price">
             <div class="drink-image">
                 <img src="images/matchaLatte.jpeg" alt="Cappuccino" id="drink-img" loading="lazy">
             </div>
-            <span class="item-right">Item 2</span> <!-- Move Item 2 here -->
+        </div>
+        <div class="third-container">
+            <div class="price-container">
+                <div class="price-item">
+                    <span class="text-sm">Glass</span>
+                    <span class="price">$6<sup class="sup-style">50</sup></span>
+                </div>
+            </div>
+
+            <div class="price-container2">
+                <div class="price-item">
+                    <span class="text-sm">Something else</span>
+                    <span class="price">$6<sup class="sup-style">50</sup></span>
+                </div>
+            </div>
         </div>
     </article>
 </section>
-
-<!-- Modal for Enlarged Image -->
-<div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="close" aria-label="Close Modal">&times;</button>
-    <img class="modal-content" id="fullImage" alt="Enlarged drink image">
-</div>
 
 </body>
 </html>
