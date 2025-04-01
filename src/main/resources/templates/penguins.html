@@ -13,5 +13,44 @@
 </head>
 <body class="bg-gs">
 <div th:replace="~{fragments/header::header}"></div>
+
+<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+
+<video id="video-id" width="100%" height="100%" autoplay="false"><source src="https://instagram.fsgn8-4.fna.fbcdn.net/o1/v/t2/f2/m367/AQOz9ctWbHLQJMjgtfSDTpqDbEZnzCz3ZROBJlPU_ZPdc11YEU1N52BE6iP6kcRqxHBY7SM-QjcRmQpJRwc3z2gnjqQ2IqoKONFuRM8.mp4?_nc_cat=107&_nc_oc=Adl8iGw9zxYhHysqydCaykQNkTv3DNt5LEMy6FAFJYE1ApdHH3PHN6o9FMImpG5HqsY&_nc_sid=5e9851&_nc_ht=instagram.fsgn8-4.fna.fbcdn.net&_nc_ohc=rRL3pMR0NroQ7kNvgH6hHoD&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uRkVFRC5DMy4xNjIwLmRhc2hfYmFzZWxpbmVfMTA4MHBfdjEiLCJ4cHZfYXNzZXRfaWQiOjEyMjg2ODU2OTUzNDI2NzgsInZpX3VzZWNhc2VfaWQiOjEwMTY0LCJkdXJhdGlvbl9zIjoyMjIsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&vs=4b8094e72073b2ed&_nc_vs=HBksFQIYQGlnX2VwaGVtZXJhbC82RTQzN0NENjNDQzE3MzZGMzJFMkY2RTMzQTVFNDlBQ192aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dFaDBEUjJQWGhtck9QMEVBQVFFSjZRMjNodHhia1lMQUFBRhUCAsgBACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJqzhyub13q4EFQIoAkMzLBdAa9xqfvnbIxgWZGFzaF9iYXNlbGluZV8xMDgwcF92MREAdeoHAA&_nc_zt=28&oh=00_AYETVTUPel7GLo2MztfvA3CL7aWXFfgv8XijDtLVch6-Ug&oe=67F1E9E8" type="video/mp4" />
+
+    <script>
+        var myFP = fluidPlayer(
+            'video-id',	{
+        "layoutControls": {
+            "controlBar": {
+                "autoHideTimeout": 3,
+                "animated": true,
+                "autoHide": true
+            },
+            "htmlOnPauseBlock": {
+                "html": null,
+                "height": "",
+                "width": null
+            },
+            "autoPlay": true,
+            "mute": true,
+            "allowTheatre": false,
+            "playPauseAnimation": true,
+            "playbackRateEnabled": true,
+            "allowDownload": false,
+            "playButtonShowing": true,
+            "fillToContainer": false,
+            "posterImage": ""
+        },
+        "vastOptions": {
+            "adList": [],
+            "adCTAText": false,
+            "adCTATextPosition": ""
+        }
+    })
+
+    </script>
+    </video>
+
 </body>
 </html>
